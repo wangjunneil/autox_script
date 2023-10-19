@@ -10,7 +10,7 @@ function unlock() {
     for (var i = 0; i < password.length; i++) {
       var p = text(password[i].toString()).findOne().bounds();
       click(p.centerX(), p.centerY());
-      sleep(200);
+      sleep(500);
     }
 
     sleep(3000);
