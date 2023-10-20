@@ -37,7 +37,6 @@ function shutdown() {
   console.hide();
   sleep(1000);
   lockScreen();
-  Power();
 }
 
 function execute() {
