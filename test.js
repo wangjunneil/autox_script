@@ -1,5 +1,11 @@
-if (
-  id("text_view").className("android.widget.TextView").text("运行中").exists()
-) {
-  click("运行中");
-}
+setText("猎装夹克");
+sleep(1000);
+click("搜索");
+sleep(3000);
+
+back();
+sleep(2000);
+back();
+sleep(2000);
+back();
+sleep(2000);
