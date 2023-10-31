@@ -30,6 +30,9 @@ common.skeleton(
       .findOne()
       .click();
 
+    var view = textStartsWith("You've signed for").findOne();
+    console.log("完成签到，" + view.text());
+
     sleep(3000);
   },
   2,

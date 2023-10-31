@@ -36,8 +36,8 @@ common.skeleton(
       sleep(3000);
     }
 
-    console.log("赚元宝-去搜索");
     var clicked = click("赚元宝");
+    console.log("赚元宝-去搜索");
     if (clicked) {
       sleep(1000);
       var searchBtnClicked = click("去搜索");
@@ -47,6 +47,12 @@ common.skeleton(
         sleep(1000);
         click("搜索");
         sleep(3000);
+
+        for (var i = 0; i < 12; i++) {
+          console.log("滑(" + (i + 1) + "/12)次");
+          swipe(900, 2000, 900, 1000, 2000);
+          sleep(1500);
+        }
 
         console.log("回签到主页");
         back();
@@ -61,11 +67,11 @@ common.skeleton(
     for (var i = 0; i < 3; i++) {
       console.log("赚元宝-逛精选好货赚元宝(" + (i + 1) + "/3)");
       var clicked = click("赚元宝");
-      if (clicked) {
+      if (clicked && !text("逛精选好货赚元宝(3/3)").exists()) {
         textStartsWith("逛精选好货赚元宝").click();
         sleep(3000);
         while (true) {
-          swipe(500, 2000, 500, 1000, 2000);
+          swipe(900, 2000, 900, 1000, 2000);
           sleep(1000);
 
           if (

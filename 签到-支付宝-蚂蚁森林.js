@@ -10,6 +10,14 @@ common.skeleton(
     click("Ant Forest");
     sleep(5000);
 
+    console.log("签到领取");
+    click(480, 1590);
+    sleep(2000);
+    click("领取");
+    sleep(2000);
+    click(991, 470);
+    sleep(3000);
+
     console.log("随机点击泡泡");
     click(221, 765);
     sleep(500);
@@ -33,13 +41,10 @@ common.skeleton(
     console.log("检索他人能量");
     while (true) {
       if (
-        className("android.widget.TextView").text("找能量共获得").exists() ||
-        className("android.widget.TextView")
-          .text("Find energy to get together")
-          .exists() ||
-        className("android.widget.TextView")
-          .text("还有更多能量待你收取")
-          .exists()
+        text("找能量共获得").exists() ||
+        text("Find energy to get together").exists() ||
+        text("还有更多能量待你收取").exists() ||
+        text("返回我的森林").exists()
       ) {
         console.log("全部已找完");
         click(1013, 170);
@@ -47,13 +52,16 @@ common.skeleton(
       }
 
       click(1009, 1540);
-      // className("android.widget.TextView").text("展开好友动态").waitFor();
-      if (className("android.widget.TextView").text("展开好友动态").exists()) {
-        sleep(2000);
+      sleep(3000);
+      if (
+        className("android.view.View").text("展开好友动态").exists() ||
+        className("android.widget.TextView").text("展开好友动态").exists()
+      ) {
         console.log("一键收");
         click(542, 1394);
-        sleep(1000);
       }
+
+      sleep(2000);
     }
   },
   1,
