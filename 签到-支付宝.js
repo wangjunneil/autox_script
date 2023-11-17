@@ -22,13 +22,8 @@ common.skeleton(
     click("Get All");
     sleep(3000);
 
-    console.log("等待 Daily Sign-in");
-    className("android.widget.TextView").text("Daily Sign-in").waitFor();
-    console.log("点击 Daily Sign-in");
-    className("android.widget.TextView")
-      .text("Daily Sign-in")
-      .findOne()
-      .click();
+    click("Daily Sign-in");
+    sleep(3000);
 
     var view = textStartsWith("You've signed for").findOne();
     console.log("完成签到，" + view.text());

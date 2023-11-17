@@ -61,7 +61,7 @@ common.skeleton(
         sleep(2000);
         back();
         sleep(2000);
-        
+
         click("去使用");
         sleep(3000);
       }
@@ -79,7 +79,7 @@ common.skeleton(
 
           if (
             className("android.widget.TextView")
-              .textStartsWith("任务完成，")
+              .textStartsWith("任务完成")
               .exists()
           ) {
             console.log("浏览完成");
