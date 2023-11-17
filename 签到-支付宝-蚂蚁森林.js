@@ -6,6 +6,10 @@ common.skeleton(
   10,
   1500,
   function () {
+    console.log("点击 Enter Alipay");
+    click("Enter Alipay");
+    sleep(5000);
+      
     console.log("进入蚂蚁森林");
     click("Ant Forest");
     sleep(5000);
@@ -15,6 +19,8 @@ common.skeleton(
     sleep(2000);
     click("领取");
     sleep(2000);
+    click("知道了");
+    sleep("1000");
     click(991, 470);
     sleep(3000);
 

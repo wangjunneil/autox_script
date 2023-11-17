@@ -12,39 +12,34 @@ common.skeleton(
       sleep(1000);
     }
 
-    var i = 0;
-    while (i < 3) {
-      var clicked = id("tab_usercenter").findOne().click();
-      if (clicked) {
-        console.log("点击我的");
-        break;
-      } else {
-        console.log('尝试"点击我的"第' + (i + 1) + "次");
-        i++;
-        back();
-        sleep(2000);
-      }
+    if (!id("tab_usercenter").exists()) {
+      console.log("弹窗广告，关闭");
+      back();
+      sleep(2000);
     }
 
-    sleep(3000);
-
-    i = 0;
-    while (i < 3) {
-      if (textStartsWith("已签").findOne(3000)) {
-        console.log("已签退出");
-        sleep(2000);
-        break;
-      }
-
-      var clicked = click("签到领奖");
-      if (clicked) {
-        console.log("点击签到领奖");
-        break;
-      } else {
-        console.log('尝试"点击签到领奖"第' + (i + 1) + "次");
-        i++;
+    console.log("点击我的");
+    id("tab_usercenter").findOne().click();
+    sleep(2000);
+    
+    if(!text("种草小公主").exists()) {
         back();
         sleep(2000);
+    }
+
+    if (textStartsWith("已签").findOne(3000)) {
+      console.log("已签退出");
+      sleep(2000);
+    } else {
+      console.log("点击签到领奖");
+      click("签到领奖");
+      sleep(2000);
+
+      if (id("iv_close").exists()) {
+        console.log("关闭提示");
+        id("iv_close").findOne().click();
+        sleep(1000);
+        back();
       }
     }
 

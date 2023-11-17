@@ -1,4 +1,7 @@
 module.exports = {
+    doNotDisturb : true,
+    //doNotDisturb : false,
+    
   stopOtherRunningScript: function () {
     console.log("关闭其他运行脚本");
     engines.all().map((ScriptEngine) => {
@@ -26,6 +29,10 @@ module.exports = {
     console.setSize(300, 200);
     console.setPosition(consoleX, consoleY);
     console.setBackgroud("#000000");
+    
+    if (this.doNotDisturb) {
+        device.setBrightness(10);
+    }
 
     device.keepScreenOn(60 * 1000);
     return app.launchPackage(pgName);
@@ -39,11 +46,20 @@ module.exports = {
     if (shutdownCallback) {
       shutdownCallback();
     }
+    
+    device.setBrightness(60);
 
     home();
     device.cancelKeepingAwake();
     console.hide();
     sleep(1000);
+    
+    if (this.doNotDisturb) {
+        recents();
+        id("clear_all_button").findOne().click();
+        sleep(1000);
+    }
+    
     lockScreen();
   },
   skeleton: function (

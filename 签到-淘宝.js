@@ -61,6 +61,9 @@ common.skeleton(
         sleep(2000);
         back();
         sleep(2000);
+        
+        click("去使用");
+        sleep(3000);
       }
     }
 
@@ -87,6 +90,11 @@ common.skeleton(
         console.log("回签到主页");
         back();
         sleep(2000);
+
+        if (textStartsWith("恭喜获得浏览红包").exists()) {
+          console.log("关闭恭喜获得浏览红包");
+          back();
+        }
       }
     }
   },
